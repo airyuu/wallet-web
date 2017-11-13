@@ -1,0 +1,124 @@
+/* main style */
+.container{
+  padding: 0;
+  overflow:hidden;
+  height: calc(100vh);
+}
+.topSelector{
+  height: 160px;
+  background: rgb(36,70,113);
+  position: relative;
+  overflow:hidden;
+}
+.topTitle{
+  text-align: center;
+  color: #fff;
+  margin-top: 50px;
+}
+.total{
+  text-align:center;
+  color:#fff;
+  margin-top:20px;
+  font-size:20px;
+}
+ul{
+  margin:0;
+  padding:0;
+}
+.iconList li{
+  border-bottom:1px solid #ddd;
+  padding: 20px;
+}
+.icon,.content,.type,.balance,.exchange{
+  display:inline-block;
+}
+.icon{
+  display: block;
+  float:left;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  
+  border: 1px solid #ddd;
+  border-radius: 100%;
+}
+.eth{
+  background: url('../assets/eth.png') scroll no-repeat 0;
+  background-size: 100%;
+}
+.btc{
+  background: url('../assets/btc.png') scroll no-repeat 0;
+  background-size: 100%;
+}
+.content {
+    padding-left: 20px;
+    width: calc(100% - 80px);
+}
+.balance {
+    float: right;
+}
+.con_top {
+    color: #000;
+}
+.con_bot {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+}
+.more{
+  width: 25px;
+  height: 25px;
+  background: url('../assets/more.png') no-repeat scroll 0%;
+  background-size: 100%;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+}
+
+/* left bar style */
+.rightContent{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ddd;
+  width: 220px;
+  height: 100%;
+}
+.right_top {
+  overflow: hidden;
+  background: #fafafa;
+  margin-bottom: 3px;
+}
+button.goback {
+  background: url(../assets/return.png) no-repeat scroll 30%;
+  background-size: 20px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  float: left;
+}
+.right_tit {
+  display: inline-block;
+  width: calc(100% - 42px);
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-indent: -2em;
+  background: #fafafa;
+  color: #333;
+}
+ul.moreset {
+  height: calc(100% - 43px);
+  background: #fafafa;
+  overflow: hidden;
+  line-height: 40px;
+}
+.moreset li {
+  border-bottom: 1px solid #ddd;
+  padding-left: 20px;
+  color: #555;
+}

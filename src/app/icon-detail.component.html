@@ -1,0 +1,49 @@
+<div class="container">
+  <!-- type:{{type}}
+  balance:{{balance}}
+  cny:{{cny}}
+  exchange:{{exchange}}
+  txrefs:{{txrefs}} -->
+
+  <div class="top">
+    <button (click)="goback()" class="goback"></button>
+    <div class="title">{{type | uppercase}}</div>
+  </div>
+  <div class="mainContent">
+    <div class="main_top">
+        <div class="logo"><img [src]="logoUrl"></div>
+        <div class="balance">{{balance}} {{type | uppercase}}</div>
+        <div class="exchange">≈{{exchange.toFixed(2)}} 元</div>
+    </div>
+    <div class="main_center">
+      <!-- <a routerLink="['/transfer',type]" class="btn color1">转账</a>
+      <a routerLink="['/transfer',type]" class="btn color2">收款</a> -->
+      <button (click)="transfer()" class="btn color1">转账</button>
+      <button (click)="receive()" class="btn color2">收款</button>
+    </div>
+    <div class="main_bottom">
+      <div class="tx_title">交易记录</div>
+      
+      <div class="txList">
+        <div class="tx">
+          <div class="inline-block line1">序号</div>
+          <div class="inline-block line2">交易金额</div>
+          <div class="inline-block line3">类型</div>
+          <div class="inline-block line4">确认时间</div>
+          <div class="inline-block line3">交易hash</div>          
+        </div>
+        <div class="tx" *ngFor="let tx of txrefs;index as i">
+          <div class="inline-block line1">{{i + 1}}</div>
+          <div class="inline-block line2">{{tx.value | toEth:18}}</div>
+          <div class="inline-block line3">
+            <span *ngIf="tx.tx_input_n===-1 && tx.tx_output_n ===0">转入</span>
+            <span *ngIf="tx.tx_input_n===0 && tx.tx_output_n ===-1">转出</span>
+          </div>
+          <div class="inline-block line4">{{tx.confirmed}}</div>
+          <div class="inline-block line3" title="tx.tx_hash">{{tx.tx_hash}}</div>         
+        </div>
+        <div *ngIf="txrefs.length==0" class="tip">暂无记录</div>
+      </div>
+    </div>
+  </div>
+</div>

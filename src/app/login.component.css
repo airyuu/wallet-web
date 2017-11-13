@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 24px;
+}
+.btn {
+  display: block;
+  width: 100%;
+}
+.alert {
+  color: #f63;
+  padding-left: 0;
+}
+.tip {
+  padding-top: 20px;
+  text-align: right;
+}
+.container{
+  max-width: 400px;
+}

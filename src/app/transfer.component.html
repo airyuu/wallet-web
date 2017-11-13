@@ -1,0 +1,48 @@
+<div class="container">
+  <!-- balance:{{balance}}
+  address:{{address}}
+  type:{{type}}
+  accountID:{{accountID}} -->
+  <div class="top">
+      <button (click)="goback()" class="goback"></button>
+      <div class="title">转账</div>
+    </div>
+    <div class="mainContent">
+      <div class="tr_ba">余额：{{balance}} {{type}}</div>
+      <div class="tr_con">
+        <form #transferForm="ngForm" (ngSubmit)="save()">
+          <div class="form_group">
+            <label for="add">对方地址</label>
+            <input type="text" name="add" class="form-control" required [(ngModel)]="transfer.add" #add="ngModel" autocomplete="off" />
+          </div>
+          <div class="form_group">
+            <label for="val">转账金额</label>
+            <input type="text" name="val" class="form-control" required [(ngModel)]="transfer.val" #val="ngModel" autocomplete="off" />
+          </div>
+          <div class="form_group">
+            <label for="paypa">支付密码</label>
+            <input type="password" name="paypa" class="form-control" required [(ngModel)]="transfer.paypa" #paypa="ngModel" autocomplete="off" />
+          </div>
+
+          <div class="form_group">
+            <button type="submit" class="btn btn-success trans">确认转账</button>  
+          </div>
+            <div *ngIf="this.submitStatus" class="alert">
+                <div *ngIf="add.invalid">
+                  <div *ngIf="add.errors.required">地址为空</div>
+                </div>
+                <div *ngIf="!add.invalid && val.invalid">
+                  <div *ngIf="val.errors.required">转账金额为空</div>
+                  <div *ngIf="!val.errors.required && !valExg.test(val.value)">金额格式不正确</div>
+                  <div *ngIf="!val.errors.required && valExg.test(val.value) && val>=balance">余额不足</div>
+                </div>
+                <div *ngIf="!add.invalid && !val.invalid && paypa.invalid">
+                  <div *ngIf="paypa.errors.required">密码为空</div>
+                  <div *ngIf="!paypa.errors.required && !passExg.test(paypa.value)">密码格式不正确</div>
+                </div>
+            </div>  
+            <div class="alert">{{msg}}</div>
+        </form>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="tit">{{type | uppercase}} 地址：</div>
+  <div class="address">{{address}}</div>
+  <div class="address">扫描二维码获取{{type | uppercase}}地址</div>
+  <div class="qrcode">
+    <qr-code [value]="address" [size]="150"></qr-code>
+  </div>
+</div>

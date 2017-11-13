@@ -1,0 +1,10 @@
+.container{
+  background: #fff;
+  line-height: 30px;
+  padding-top: 20px;
+  color: #333;
+}
+.qrcode{
+  text-align: center;
+  margin-top: 20px;
+}

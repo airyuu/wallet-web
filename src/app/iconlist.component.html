@@ -1,0 +1,72 @@
+<!-- 主页面 -->
+<div class="container">
+  <div class="topSelector">
+    <button class="more" (click)="toggleRightBar()"></button>
+    <div class="topTitle">总资产（元）</div>
+    <div class="total">{{total.toFixed(2)}}</div>
+  </div>
+  <ul id="iconList" class="iconList">
+    <li>
+      <a [routerLink]="['/iconDetail','eth']">
+        <div class="icon eth"></div>
+        <div class="content">
+          <div class="con_top">
+            <div class="type">ETH</div>
+            <div class="balance">{{eth_balance.toFixed(6)}}</div>
+          </div>
+          <div class="con_bot">
+            <div class="exchange">1ETH ≈ {{eth_cny.toFixed(2)}}元</div>
+            <div class="balance">{{eth_exchange.toFixed(2)}}元</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/iconDetail','btc']">
+        <div class="icon btc"></div>
+        <div class="content">
+          <div class="con_top">
+            <div class="type">BTC</div>
+            <div class="balance">{{btc_balance.toFixed(6)}}</div>
+          </div>
+          <div class="con_bot">
+            <div class="exchange">1BTC ≈ {{btc_cny.toFixed(2)}}元</div>
+            <div class="balance">{{btc_exchange.toFixed(2)}}元</div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+
+  <!-- 侧边栏 -->
+  <div class="rightContent" *ngIf="moreHintStatus">
+    <div class="right_top">
+      <button (click)="toggleRightBar()" class="goback"></button>
+      <div class="right_tit">设置</div>
+    </div>
+    <ul class="moreset">
+      <li>
+        <div class="more_le"></div>
+        <div class="more_ri"><a routerLink="/setPayPassword" routerLinkActive="active">设置支付密码</a></div>
+      </li>
+      <li>
+        <div class="more_le"></div>
+        <div class="more_ri"><a routerLink="/setPassword" routerLinkActive="active">设置登录密码</a></div>
+      </li>
+      <li>
+        <div class="more_le"></div>
+        <div class="more_ri">邮箱认证</div>
+      </li>
+      <li>
+        <div class="more_le"></div>
+        <div class="more_ri">帮助中心</div>
+      </li>
+      <li>
+        <div class="more_le"></div>
+        <div class="more_ri"><a routerLink="/index" routerLinkActive="active">退出账户</a></div>
+      </li>
+    </ul>
+  </div>
+
+</div>
