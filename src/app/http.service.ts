@@ -10,8 +10,8 @@ import "rxjs/Rx";
 @Injectable()
 
 export class HttpService {
-  private headers = new Headers({'Content-Type':'application/json'});
-  private url = 'http://localhost:8089/';
+  private headers = new Headers({'Content-Type':'application/json','Access-Control-Allow-Origin': '*'});
+  private url = 'http://localhost:8089';
   private loginUrl = 'http://localhost:8089/login';
   iconListData = new IconData();
 
@@ -32,7 +32,7 @@ export class HttpService {
   login(user:User):Promise<any> {
     let requestData = JSON.stringify({username:user.username,password:user.password});
     console.log(requestData);
-    return this.http.post('/login',requestData,{headers:this.headers})
+    return this.http.post(this.url+'/login',requestData)
              .toPromise()
              .then(res => res)
              .catch(err => err);
@@ -41,7 +41,7 @@ export class HttpService {
   register(user:User):Promise<any>{
     let requestData = JSON.stringify({username:user.username,password:user.password});
     console.log(requestData);
-    return this.http.post('/register',requestData,{headers:this.headers})
+    return this.http.post(this.url+'/register',requestData,{headers:this.headers})
              .toPromise()
              .then(res => res)
              .catch(err => err);
@@ -50,7 +50,7 @@ export class HttpService {
   setPayPassword(accountID,payPassword):Promise<any>{
     let requestData = JSON.stringify({accountID:accountID,payPassword:payPassword});
     console.log(requestData);
-    return this.http.post('/setPayPassword',requestData,{headers:this.headers})
+    return this.http.post(this.url+'/setPayPassword',requestData,{headers:this.headers})
              .toPromise()
              .then(res => res)
              .catch(err => err);
@@ -59,7 +59,7 @@ export class HttpService {
   setPassword(username,password):Promise<any>{
     let requestData = JSON.stringify({username:username,password:password});
     console.log(requestData);
-    return this.http.post('/resetPassword',requestData,{headers:this.headers})
+    return this.http.post(this.url+'/resetPassword',requestData,{headers:this.headers})
              .toPromise()
              .then(res => res)
              .catch(err => err);
@@ -74,7 +74,7 @@ export class HttpService {
       value:value
     });
     console.log(requestData);
-    return this.http.post('/signature/eth',requestData,{headers:this.headers})
+    return this.http.post(this.url+'/signature/eth',requestData,{headers:this.headers})
               .toPromise()
               .then(res => res)
               .catch(err => err);

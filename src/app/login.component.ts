@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit{
     if(valid1 && valid2){
       let loading = this.layerService.loading().setMessage("加载中...");
       this.httpService.login(this.user).then(res => {
-        console.log(res);
+        alert(res);
         if(res.status == 200){
           let data = JSON.parse(res._body);
           console.log(data);

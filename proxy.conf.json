@@ -1,6 +1,5 @@
 {
-  "**": {
-      "target": "http://localhost:8089",
-      "secure":false
+  "/api": {
+      "target": "http://localhost:8089"
   }
 }
